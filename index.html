@@ -26,6 +26,7 @@
 		var li_plus = document.getElementById('li-plus');
 		var divmain = document.getElementById('main');
 		var txtCounter = 2;
+		var obj = [];
 
 		li_plus.addEventListener("click", function() {
 			var div = document.createElement("div");
@@ -43,18 +44,17 @@
 			divmain.appendChild(div);
 			ul.insertBefore( li, ul.childNodes[ul.childNodes.length - 2] )
 			txtCounter++;
-
+			//http://jsfiddle.net/Xtgr4/
 			for (var i = 0; i < li_all.length; i++) {
-				if (li_all[i].id != "li-plus") {
-					li_all[i].removeEventListener("click", function(){});
-					//console.log('-successfully removed click on ' + li_all[i].id);
-				}
-			}
-
-			for (var i = 0; i < li_all.length; i++) {
-				if (li_all[i].id != "li-plus") {
-				 li_all[i].addEventListener("click", function() {
-					});
+				console.log(i + "=" + obj[i]);
+				if (li_all[i].id !== "li-plus") {
+					if (!obj[i]) {
+						li_all[i].addEventListener("click", function() {
+							obj[li_all[i].id] = true;
+							console.log(event.target);
+							console.log(i + "=" + obj[i]);
+						});
+					}
 				}
 			}
 		});
