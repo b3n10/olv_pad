@@ -5,15 +5,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<style>
 			div { border: 1px solid #ccc; }
-			li { cursor: pointer; }
+			li, label { cursor: pointer; }
 		</style>
 		<title>WebPad</title>
 	</head>
 	<body>
 		<ul id="ul">
 			<li id="li-1">1</li>
-			<li id="li-plus">+</li>
 		</ul>
+		<label id="lbl-plus">add</label>
 		<div id="main">
 			<div id="div-1">
 				<textarea id="txt-1">
@@ -23,12 +23,11 @@
 	<script type="text/javascript">
 	window.onload = function() {
 		var ul = document.getElementById('ul');
-		var li_plus = document.getElementById('li-plus');
+		var lbl_plus = document.getElementById('lbl-plus');
 		var divmain = document.getElementById('main');
 		var txtCounter = 2;
-		var obj = [];
 
-		li_plus.addEventListener("click", function() {
+		lbl_plus.addEventListener("click", function() {
 			var div = document.createElement("div");
 			var li = document.createElement("li");
 			var txt = document.createElement("textarea");
@@ -42,20 +41,12 @@
 
 			div.appendChild(txt);
 			divmain.appendChild(div);
-			ul.insertBefore( li, ul.childNodes[ul.childNodes.length - 2] )
+			ul.appendChild(li);
 			txtCounter++;
+
 			//http://jsfiddle.net/Xtgr4/
+
 			for (var i = 0; i < li_all.length; i++) {
-				console.log(i + "=" + obj[i]);
-				if (li_all[i].id !== "li-plus") {
-					if (!obj[i]) {
-						li_all[i].addEventListener("click", function() {
-							obj[li_all[i].id] = true;
-							console.log(event.target);
-							console.log(i + "=" + obj[i]);
-						});
-					}
-				}
 			}
 		});
 
