@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			div { border: 1px solid #ccc; }
+			li { cursor: pointer; }
+		</style>
+		<title>WebPad</title>
+	</head>
+	<body>
+		<ul id="ul">
+			<li id="li-1">1</li>
+			<li id="li-plus">+</li>
+		</ul>
+		<div id="main">
+			<div id="div-1">
+				<textarea id="txt-1">
+				</textarea>
+			</div>
+		</div>
+	<script type="text/javascript">
+	window.onload = function() {
+		var ul = document.getElementById('ul');
+		var li_plus = document.getElementById('li-plus');
+		var divmain = document.getElementById('main');
+		var txtCounter = 2;
+
+		li_plus.addEventListener("click", function() {
+			var div = document.createElement("div");
+			var li = document.createElement("li");
+			var txt = document.createElement("textarea");
+			var li_all = document.getElementsByTagName("li");
+
+			div.id = "div-" + txtCounter;	
+			txt.id = "txt-" + txtCounter;
+			li.id = "li-" + txtCounter;
+			txt.innerText = txtCounter;
+			li.innerText = txtCounter;
+
+			div.appendChild(txt);
+			divmain.appendChild(div);
+			ul.insertBefore( li, ul.childNodes[ul.childNodes.length - 2] )
+			txtCounter++;
+
+			for (var i = 0; i < li_all.length; i++) {
+				if (li_all[i].id != "li-plus") {
+					li_all[i].removeEventListener("click", function(){});
+					//console.log('-successfully removed click on ' + li_all[i].id);
+				}
+			}
+
+			for (var i = 0; i < li_all.length; i++) {
+				if (li_all[i].id != "li-plus") {
+				 li_all[i].addEventListener("click", function() {
+					});
+				}
+			}
+		});
+
+	};
+	</script>
+	</body>
+</html>
