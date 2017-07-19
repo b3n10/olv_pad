@@ -1,0 +1,36 @@
+.container {
+  min-width: 500px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+ul, li {
+  display: inline-block;
+  margin: 0;
+  padding: 0;  
+}
+
+li {
+  border: 1px solid #000;
+  border-left: none;
+  border-top-right-radius: 8px;
+  margin-right: 1px;
+  width: 23px;
+  text-align: center;
+}
+
+li:first-of-type {
+  border-left: 1px solid #000;
+}
+
+li, label {
+ cursor: pointer;
+}
+
+textarea {
+  width: 100%;
+  height: 100%;
+  border: 1px dashed #ccc;
+  resize: none;
+  padding: 10px;
+}
