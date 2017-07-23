@@ -8,46 +8,18 @@
 	</head>
 	<body>
 		<div class="container">
-			<ul id="ul"><li id="li-1">1</li></ul>
-			<label id="lbl-plus">+</label>
-			<div id="main">
+			<div class="list-left">
+				<button id="btn-add">add</button>
+				<ul>
+					<li id="li-1" class="selected">tab 1</li>
+				</ul>
+			</div>
+			<div class="div-text">
 				<div id="div-1">
-					<textarea id="txt-1">
-					</textarea>
+					<textarea id="txt-1">1</textarea>
 				</div>
 			</div>
 		</div>
-	<script type="text/javascript">
-	window.onload = function() {
-		var ul = document.getElementById('ul');
-		var lbl_plus = document.getElementById('lbl-plus');
-		var divmain = document.getElementById('main');
-		var txtCounter = 2;
-
-		lbl_plus.addEventListener("click", function() {
-			var div = document.createElement("div");
-			var li = document.createElement("li");
-			var txt = document.createElement("textarea");
-			var li_all = document.getElementsByTagName("li");
-
-			div.id = "div-" + txtCounter;	
-			txt.id = "txt-" + txtCounter;
-			li.id = "li-" + txtCounter;
-			txt.innerText = txtCounter;
-			li.innerText = txtCounter;
-
-			div.appendChild(txt);
-			divmain.appendChild(div);
-			ul.appendChild(li);
-			txtCounter++;
-
-			//http://jsfiddle.net/Xtgr4/
-
-			for (var i = 0; i < li_all.length; i++) {
-			}
-		});
-
-	};
-	</script>
+		<script type="text/javascript" src="main.js"></script>
 	</body>
 </html>
