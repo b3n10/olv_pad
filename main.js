@@ -1,11 +1,22 @@
 var btn_add = document.getElementById('btn-add'),
 	ul = document.getElementsByTagName('ul')[0],
 	li_1 = document.getElementById('li-1'),
-	div_text = document.getElementsByClassName('div-text')[0];
+	div_text = document.getElementsByClassName('div-text')[0],
 	listCounter = 2;
 
 li_1.addEventListener("click", function() {
 	focuslist(this.id, 'div-1');
+});
+
+li_1.addEventListener("dblclick", function() {
+	li_1.setAttribute( 'contenteditable', true);
+});
+
+li_1.addEventListener("keydown", function(event) {
+	if (event.which === 13) {
+		li_1.setAttribute( 'contenteditable', false);
+		return false;
+	}
 });
 
 btn_add.addEventListener("click", function() {
@@ -18,7 +29,6 @@ btn_add.addEventListener("click", function() {
 	txt.id = "txt-" + listCounter;
 
 	li.innerHTML = "tab " + listCounter;
-	txt.innerHTML = listCounter;
 
 	ul.appendChild(li);
 	div.appendChild(txt);
@@ -26,6 +36,17 @@ btn_add.addEventListener("click", function() {
 
 	li.addEventListener("click", function() {
 		focuslist(li.id, div.id);
+	});
+
+	li.addEventListener("dblclick", function() {
+		li.setAttribute( 'contenteditable', true);
+	});
+
+	li.addEventListener("keydown", function(event) {
+		if (event.which === 13) {
+			li.setAttribute( 'contenteditable', false);
+			return false;
+		}
 	});
 
 	focuslist(li.id, div.id);
