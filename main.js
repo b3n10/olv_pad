@@ -1,3 +1,12 @@
+/*
+ * Author: Francis Ben Lleve
+ * Date Started: 07-24-2017
+ * Last Update: 07-24-2017
+ * Git: https://github.com/b3n10/olv_pad.git
+ * Notes: No frameworks used. Only Vanilla JavaScript. Say NO to JQuery!
+ * Todo: Need copy function HTML5 compatibility.
+ */
+
 var btn_add = document.getElementById('btn-add'),
 	ul = document.getElementsByTagName('ul')[0],
 	li_1 = document.getElementById('li-1'),
