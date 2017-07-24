@@ -101,10 +101,10 @@ a:hover {
 	background: #ccc;
 }
 
-#a-copy-1 {
+.a-copy {
 	left: 0px;
 }
 
-#a-clear-1 {
+.a-clear {
 	right: 0px;
 }
