@@ -87,6 +87,11 @@ textarea {
 	color: #fff;
 }
 
+.rename {
+	background: #bababa;
+	color: #000;
+}
+
 a {
 	position: absolute;
 	top: 0px;
@@ -97,7 +102,7 @@ a {
 
 a:hover {
 	cursor: pointer;
-	color: #fff;
+	color: #000;
 	background: #ccc;
 }
 

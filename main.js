@@ -1,7 +1,7 @@
 /*
  * Author: Francis Ben Lleve
  * Date Started: 07-24-2017
- * Last Update: 07-24-2017
+ * Last Update: 07-25-2017
  * Git: https://github.com/b3n10/olv_pad.git
  * Notes: No frameworks used. Only Vanilla JavaScript. Say NO to JQuery!
  * Todo: Need copy function HTML5 compatibility.
@@ -17,17 +17,23 @@ var btn_add = document.getElementById('btn-add'),
 	listCounter = 2;
 
 li_1.addEventListener("click", function() { focuslist(this.id, 'div-1') });
-li_1.addEventListener("dblclick", function() { li_1.setAttribute('contenteditable', true) });
+li_1.addEventListener("dblclick", function() {
+	li_1.setAttribute('contenteditable', true)
+	li_1.classList.remove('selected');
+	li_1.classList.add('rename');
+});
 
 li_1.addEventListener("keydown", function(event) {
 	if (event.which === 13) {
 		li_1.setAttribute( 'contenteditable', false);
+		li_1.classList.remove('rename');
+		li_1.classList.add('selected');
 		return false;
 	}
 });
 
-copy_1.addEventListener("click", function() { copyText(txt_1.value) });
-clear_1.addEventListener("click", function() { clearText(txt_1.value) });
+copy_1.addEventListener("click", function() { copyText(txt_1) });
+clear_1.addEventListener("click", function() { clearText(txt_1) });
 
 btn_add.addEventListener("click", function() {
 	var li = document.createElement('li'),
@@ -58,18 +64,22 @@ btn_add.addEventListener("click", function() {
 	});
 
 	li.addEventListener("dblclick", function() {
+		li.classList.remove('selected');
+		li.classList.add('rename');
 		li.setAttribute( 'contenteditable', true);
 	});
 
 	li.addEventListener("keydown", function(event) {
 		if (event.which === 13) {
 			li.setAttribute( 'contenteditable', false);
+			li.classList.remove('rename');
+			li.classList.add('selected');
 			return false;
 		}
 	});
 
-	copy.addEventListener("click", function() { copyText(txt.value) });
-	clear.addEventListener("click", function() { clearText(txt.value) });
+	copy.addEventListener("click", function() { copyText(txt) });
+	clear.addEventListener("click", function() { clearText(txt) });
 
 	focuslist(li.id, div.id);
 
@@ -91,9 +101,13 @@ function focuslist(li, div) {
 function copyText(txt) {
 	//copy
 	console.log(txt);
+	txt.select();
+	document.execCommand('Copy');
 }
 
 function clearText(txt) {
 	//clear
-	console.log(txt);
+	if (confirm("Are you sure you want to clear?")) {
+		txt.value = "";
+	}
 }
