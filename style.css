@@ -1,5 +1,6 @@
 * {
 	box-sizing: border-box;
+	font-family: 'Source Sans Pro', 'Calibri', sans-serif;
 }
 
 body {
@@ -10,14 +11,17 @@ body {
 	background: #fff;
 	border-radius: 5px;
   min-width: 500px;
-  max-width: 700px;
-	height: 600px;
+  max-width: 900px;
+	height: 655px;
   margin: 0 auto;
 	display: flex;
 	justify-content: space-around;
 }
 
 .list-left {
+	flex: 1;
+}
+.list-right {
 	flex: 1;
 }
 
@@ -33,7 +37,8 @@ body {
 	position: relative;
 }
 
-.list-left ul {
+.list-left ul,
+.list-right ul {
 	padding: 0;
 	margin: 0;
 }
@@ -43,11 +48,23 @@ button:hover {
 	cursor: pointer;
 }
 
-.list-left li {
+.list-left li,
+.list-right li {
 	list-style: none;
-	text-align: left;
-	padding-left: 10px;
 	margin: 5px 0;
+}
+
+.list-left li {
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	padding-left: 10px;
+	text-align: left;
+}
+.list-right li {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	padding-right: 10px;
+	text-align: right;
 }
 
 .list-left button {
@@ -70,7 +87,7 @@ textarea {
 	border: none;
 	outline: none;
 	resize: none;
-	padding: 20px 10px;
+	padding: 10px 10px;
 	line-height: 1.5;
 	font-size: 15px;
 	width: 100%;
@@ -78,11 +95,6 @@ textarea {
 }
 
 .selected {
-	border-top: 1px dashed #000;
-	border-left: 1px dashed #000;
-	border-bottom: 1px dashed #000;
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
 	background: #000;
 	color: #fff;
 }
@@ -94,7 +106,7 @@ textarea {
 
 a {
 	position: absolute;
-	top: 0px;
+	bottom: 0px;
 	padding: 5px 15px;
 	color: #ccc;
 	text-decoration: none;
@@ -107,9 +119,9 @@ a:hover {
 }
 
 .a-copy {
-	left: 0px;
+	left: 15px;
 }
 
 .a-clear {
-	right: 0px;
+	right: 15px;
 }
