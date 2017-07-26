@@ -8,7 +8,8 @@
  */
 
 var btn_add = document.getElementById('btn-add'),
-	ul = document.getElementsByTagName('ul')[0],
+	ul1 = document.getElementsByTagName('ul')[0],
+	ul2 = document.getElementsByTagName('ul')[1],
 	li_1 = document.getElementById('li-1'),
 	div_text = document.getElementsByClassName('div-text')[0],
 	txt_1 = document.getElementById('txt-1'),
@@ -46,14 +47,19 @@ btn_add.addEventListener("click", function() {
 	div.id = "div-" + listCounter;
 	txt.id = "txt-" + listCounter;
 
-	li.innerHTML = "tab " + listCounter;
+	li.innerHTML = " tab " + listCounter;
 	copy.innerHTML = "copy";
 	clear.innerHTML = "clear";
 
 	copy.classList.add("a-copy");
 	clear.classList.add("a-clear");
 
-	ul.appendChild(li);
+	if (listCounter < 26) {
+		ul1.appendChild(li);
+	} else {//append to next UL
+		ul2.appendChild(li);
+	}
+
 	div.appendChild(txt);
 	div.appendChild(copy);
 	div.appendChild(clear);
@@ -83,7 +89,12 @@ btn_add.addEventListener("click", function() {
 
 	focuslist(li.id, div.id);
 
-	listCounter++;
+	if (listCounter === 51) {
+		this.setAttribute('disabled', true);
+	} else {
+		listCounter++;
+	}
+
 });
 
 function focuslist(li, div) {
@@ -100,9 +111,9 @@ function focuslist(li, div) {
 
 function copyText(txt) {
 	//copy
-	console.log(txt);
 	txt.select();
 	document.execCommand('Copy');
+	document.activeElement.selectionStart = document.activeElement.selectionEnd;
 }
 
 function clearText(txt) {
