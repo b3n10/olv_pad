@@ -23,6 +23,8 @@ Clone the git on your home directory:
 git clone https://github.com/b3n10/olv_pad.git
 ```
 
+[Preview of the Online Pad](https://github.com/b3n10/olv_pad.git "Github Page")
+
 ---
 
 **FILES**
