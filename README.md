@@ -10,6 +10,12 @@ This application is useful for taking notes while on a phonecall. A lot companie
 
 ---
 
+**AUTHOR**
+
+* Francis Ben Lleve
+
+---
+
 **INSTALLATION**
 
 Clone the git on your home directory:
@@ -26,4 +32,9 @@ git clone https://github.com/b3n10/olv_pad.git
 * style.css
 * README.md
 
+
+**TODO**
+
+* Add close tab buttons
+* Append new tab on column with close tabs
 
