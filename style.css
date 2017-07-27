@@ -43,28 +43,38 @@ body {
 	margin: 0;
 }
 
-li:hover,
-button:hover {
-	cursor: pointer;
-}
-
 .list-left li,
 .list-right li {
 	list-style: none;
 	margin: 5px 0;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	height: 20px;
 }
 
 .list-left li {
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
+	border-top-left-radius: 50px;
+	border-bottom-left-radius: 50px;
 	padding-left: 10px;
 	text-align: left;
 }
 .list-right li {
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
+	border-top-right-radius: 50px;
+	border-bottom-right-radius: 50px;
 	padding-right: 10px;
 	text-align: right;
+}
+
+li:hover {
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+	border-radius: 0;
+	font-style: italic;
+}
+
+li:hover,
+button:hover {
+	cursor: pointer;
 }
 
 .list-left button {
