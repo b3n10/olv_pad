@@ -1,7 +1,6 @@
 #Pad
 
-##Online Notepad for contact centers
-
+Online Notepad for contact centers
 ---
 
 **ABOUT**
