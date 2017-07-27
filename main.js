@@ -36,7 +36,9 @@ li_1.addEventListener("keydown", function(event) {
 copy_1.addEventListener("click", function() { copyText(txt_1) });
 clear_1.addEventListener("click", function() { clearText(txt_1) });
 
-btn_add.addEventListener("click", function() {
+btn_add.addEventListener("click", addButton);
+
+function addButton() {
 	var li = document.createElement('li'),
 		div = document.createElement('div'),
 		txt = document.createElement('textarea'),
@@ -48,8 +50,11 @@ btn_add.addEventListener("click", function() {
 	txt.id = "txt-" + listCounter;
 
 	li.innerHTML = " tab " + listCounter;
+	li.title = "Double-click to rename;\nEnter when done.";
 	copy.innerHTML = "copy";
+	copy.title = "Copy text";
 	clear.innerHTML = "clear";
+	clear.title = "Clear text";
 
 	copy.classList.add("a-copy");
 	clear.classList.add("a-clear");
@@ -90,12 +95,14 @@ btn_add.addEventListener("click", function() {
 	focuslist(li.id, div.id);
 
 	if (listCounter === 51) {
+		this.style.backgroundColor = '#eee';
+		this.innerHTML = "---";
 		this.setAttribute('disabled', true);
 	} else {
 		listCounter++;
 	}
 
-});
+}
 
 function focuslist(li, div) {
 	var list = document.getElementsByTagName('li');
